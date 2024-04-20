@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tournament-tracker-gto": {
+      "hosting": {
+        "tournament-tracker": [
+          "tournament-tracker-gto"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tournament-tracker-gto"
+  }
+}
