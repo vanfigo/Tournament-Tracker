@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Tournament-Tracker": {
+    "tournament-tracker": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -54,7 +54,13 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -63,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Tournament-Tracker:build:production"
+              "buildTarget": "tournament-tracker:build:production"
             },
             "development": {
-              "buildTarget": "Tournament-Tracker:build:development"
+              "buildTarget": "tournament-tracker:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -74,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "Tournament-Tracker:build"
+            "buildTarget": "tournament-tracker:build"
           }
         },
         "test": {
@@ -96,6 +102,23 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "tournament-tracker:build:production",
+              "serveTarget": "tournament-tracker:serve:production"
+            },
+            "development": {
+              "buildTarget": "tournament-tracker:build:development",
+              "serveTarget": "tournament-tracker:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

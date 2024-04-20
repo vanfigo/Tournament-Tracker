@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "tournament-tracker",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}
